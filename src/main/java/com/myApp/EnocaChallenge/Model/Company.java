@@ -25,24 +25,26 @@ public class Company {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 	
-	@Column(name = "name" , columnDefinition="text")
+	
+	@Column(name = "name"  ,length = 25 )
 	@NotBlank(message = "name may not be blank") 
     private String name;
 	
-	@Column(name = "address", columnDefinition="text")
+	@Column(name = "address" ,length = 50 )
 	@NotBlank(message = "address may not be blank") 
     private String address;
 	
-	@Column(name = "telephone",columnDefinition="text")
+	@Column(name = "telephone" ,length = 11 )
 	@NotBlank(message = "telephone may not be blank") 
     private String telephone;
 	
-	@Column(name = "description", columnDefinition="text")
+	@Column(name = "description" ,length = 100 )
 	@NotBlank(message = "description may not be blank") 
     private String description;
 	
 	@OneToMany(cascade = CascadeType.ALL )
     @JoinColumn(name = "project_id")
+	@NotBlank(message = "project_id may not be blank") 
 	@JsonManagedReference
     private List<Employee> employees;
 

@@ -30,16 +30,19 @@ public class Employee {
 	//
 
 	@Column(name = "first_name",nullable=false ,length = 5 )
+	@NotBlank(message = "first_name may not be blank") 
     private String first_name;
 	
 	@Column(name = "last_name",nullable=false ,length = 50 )
+	@NotBlank(message = "last_name may not be blank") 
     private String last_name;
 
 	@Column(name = "address",nullable=false ,length = 50 )
+	@NotBlank(message = "address may not be blank") 
     private String address;
 	
 	@Column(name = "telephone",nullable=false ,length = 11 )
-	@NotNull
+	@NotBlank(message = "role may not be blank") 
     private String telephone;
 	
 	@Column(name = "role",nullable=false )
@@ -49,6 +52,7 @@ public class Employee {
 	
 	@ManyToOne
     @JsonBackReference 
+    @NotBlank(message = "project_id may not be blank") 
     @JoinColumn(name = "project_id",referencedColumnName = "id" )
     private Company company;
 	
